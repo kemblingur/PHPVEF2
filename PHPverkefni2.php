@@ -43,37 +43,11 @@
             }
             //Smiðurinn fyrir klasann
             function Book( $thing, $thing2 ) {
-               $this->title = $thing1;
-               $this->price = $thing2;
+               $this->titill = $thing;
+			   $this->verd = $thing2;
             }
         }
 	</pre>
-	<?php
-		class Book{
-			//breytur skilgreindar
-	    	var $verd;
-	    	var $titill;
-	    	// Get og set fyrir $verd
-	    	function setPrice($thing){
-	    	   $this->verd = $thing;
-	    	}
-	    	function getPrice(){
-	    	   echo $this->verd;
-	    	}
-	    	// Get og set fyrir $titill
-	    	function setTitle($thing){
-	    	   $this->titill = $thing;
-	    	}
-	    	function getTitle(){
-	    	   echo $this->titill;
-	    	}
-	    	//Smiðurinn fyrir klasann
-	    	function Book( $thing, $thing2 ) {
-			   $this->title = $thing1;
-			   $this->price = $thing2;
-			}
-		}
-	?>
 	<h3>Liður 6</h3>
 	<pre>
         //PHP er í sourcefæl
@@ -101,7 +75,7 @@
             }
             //Smiður sem notar erfðan klasa
             function MoreBook($Titill, $Verd, $Utgefandi) {
-                Book::Name($Titill, $Verd);
+                Book::Book($Titill, $Verd);
                 $this->utgefandi = $Utgefandi;
             }
             //Prentar út allar upplýsingar um bókina
@@ -111,6 +85,30 @@
         }
 	</pre>
 	<?php 
+		class Book{
+			//breytur skilgreindar
+			var $verd;
+			var $titill;
+			// Get og set fyrir $verd
+			function setPrice($thing){
+			   $this->verd = $thing;
+			}
+			function getPrice(){
+			   echo $this->verd;
+			}
+			// Get og set fyrir $titill
+			function setTitle($thing){
+			   $this->titill = $thing;
+			}
+			function getTitle(){
+			   echo $this->titill;
+			}
+			//Smiðurinn fyrir klasann
+			function Book( $thing, $thing2 ) {
+			   $this->titill = $thing;
+			   $this->verd = $thing2;
+			}
+		}
 		class MoreBook extends Book{
 			//viðbætt breyta
 			var $utgefandi;
@@ -123,7 +121,7 @@
    			}
    			//Smiður sem notar erfðan klasa
    			function MoreBook($Titill, $Verd, $Utgefandi) {
-		    	Book::Name($Titill, $Verd);
+		    	Book::Book($Titill, $Verd);
 		    	$this->utgefandi = $Utgefandi;
 		   }
 		   //Prentar út allar upplýsingar um bókina
@@ -133,5 +131,59 @@
 		}
 	?>
 	<h3>Liður 8</h3>
+	<pre>
+        class User{
+            //breytur skilgreindar
+            var $email;
+            var $password;
+            // Get og set fyrir $email
+            function setEmail($thing){
+                $this->email = $thing;
+            }
+            function getEmail(){
+                echo $this->email;
+            }
+            // Get og set fyrir $password
+            function setPass($thing){
+                $this->password = $thing;
+            }
+            function getPass(){
+                echo $this->password;
+            }
+            //Smiðurinn fyrir klasann
+            function User( $array ) {
+                $this->title = $array['email'];
+                $this->price = $array['password'];
+            }
+        }
+        $newGuy = new User($thing = array('email' => "eythormani@gmail.com", 'password' => "lykilord"));
+	</pre>
+	<?php
+        class User{
+            //breytur skilgreindar
+            var $email;
+            var $password;
+            // Get og set fyrir $email
+            function setEmail($thing){
+                $this->email = $thing;
+            }
+            function getEmail(){
+                echo $this->email;
+            }
+            // Get og set fyrir $password
+            function setPass($thing){
+                $this->password = $thing;
+            }
+            function getPass(){
+                echo $this->password;
+            }
+            //Smiðurinn fyrir klasann
+            function User( $array ) {
+                $this->title = $array['email'];
+                $this->price = $array['password'];
+            }
+        }
+		$newGuy = new User($thing = array('email' => "eythormani@gmail.com", 'password' => "lykilord"));
+	?>
 </body>
 </html>
